@@ -1,3 +1,17 @@
+export function getOffset(vowelsLength) {
+    if (vowelsLength === 1) {
+        return 0;
+    }
+    let offset = 0;
+    let powerCount = vowelsLength - 2;
+    while (powerCount > 0) {
+        offset += 5 * (4**powerCount);
+        powerCount--;
+    }
+    offset += 4;
+    return offset;
+}
+
 export default function parseEberbanNumber(eberbanNumber) {
     return ({
         ti: 0,
