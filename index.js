@@ -31,6 +31,10 @@ export function getVowelPosition(vowel, index, array) {
     return vowelPosition;
 }
 
+export function getVowelScore(vowelPosition, index, array) {
+    return vowelPosition * (4 ** ((array.length - 1) - index));
+}
+
 export default function parseEberbanNumber(eberbanNumber) {
     return ({
         ti: 0,
