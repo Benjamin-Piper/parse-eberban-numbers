@@ -1,4 +1,8 @@
 export function getOffset(vowelsLength) {
+    /*
+                                2        1        0 
+      touia (length 4)  ->  5(4)  +  5(4)  +  4(4)
+    */
     if (vowelsLength === 1) {
         return 0;
     }
@@ -13,6 +17,7 @@ export function getOffset(vowelsLength) {
 }
 
 export function getVowelPosition(vowel, index, array) {
+    // [o,u,i,a] -> [3,3,0,2]
     const firstVowelPositions = { i:0, e:1, a:2, o:3, u:4 };
     const adjacentVowelPositions = {
         i: { e:0, a:1, o:2, u:3 },
@@ -32,6 +37,10 @@ export function getVowelPosition(vowel, index, array) {
 }
 
 export function getVowelScore(vowelPosition, index, array) {
+    /*
+                         3        2        1        0
+      [3,3,0,2]  ->  3(4)  +  3(4)  +  0(4)  +  2(4)
+    */
     return vowelPosition * (4 ** ((array.length - 1) - index));
 }
 
