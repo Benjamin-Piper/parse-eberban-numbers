@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import parseEberbanNumber, { getOffset, getVowelPosition, getVowelScore } from ".";
 
-describe("expected input", () => {
+describe("unit tests: expected input", () => {
     describe("Get offset", () => {
         test.each([
             [1, 0],
@@ -49,6 +49,9 @@ describe("expected input", () => {
             expect(getVowelScore(vowelPosition, 0, Array(length))).toBe(output);
         });
     });
+})
+
+describe("integration: expected input", () => {
     describe("1-digit numbers", () => {
         test.each([
             ["ti", 0],
