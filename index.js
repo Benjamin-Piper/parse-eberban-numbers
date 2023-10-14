@@ -45,11 +45,11 @@ export function getVowelScore(vowelPosition, index, array) {
 }
 
 export default function parseEberbanNumber(eberbanNumber) {
-    return ({
-        ti: 0,
-        te: 1,
-        ta: 2,
-        to: 3,
-        tu: 4,
-    })[eberbanNumber];
+    const vowels = eberbanNumber.substring(1);
+    const offset = getOffset(vowels.length);
+    const totalScore = vowels.split("")
+        .map(getVowelPosition)
+        .map(getVowelScore)
+        .reduce((prev, curr) => prev + curr, 0);
+    return offset + totalScore;
 };

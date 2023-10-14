@@ -60,4 +60,30 @@ describe("expected input", () => {
             expect(parseEberbanNumber(eberbanNumber)).toBe(decimalNumber);
         });
     });
+    describe("2-digit numbers", () => {
+        test.each([
+            ["tie",  5],
+            ["tia",  6],
+            ["tio",  7],
+            ["tiu",  8],
+            ["tei",  9],
+            ["tea", 10],
+            ["teo", 11],
+            ["teu", 12],
+            ["tai", 13],
+            ["tae", 14],
+            ["tao", 15],
+            ["tau", 16],
+            ["toi", 17],
+            ["toe", 18],
+            ["toa", 19],
+            ["tou", 20],
+            ["tui", 21],
+            ["tue", 22],
+            ["tua", 23],
+            ["tuo", 24],
+        ])("%s -> %d", (eberbanNumber, decimalNumber) => {
+            expect(parseEberbanNumber(eberbanNumber)).toBe(decimalNumber);
+        });
+    });
 });
